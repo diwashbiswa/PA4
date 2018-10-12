@@ -1,3 +1,11 @@
+/**********************************************************************************************************
+Programmers: Diwash Biswa, Drew Mclaurin (cout sorry if last_name == misspelled) ;)
+Programming Assignment: PA4 Board Game
+Date Started: 10/12/18
+Date Due: 10/17/18
+Comments: 
+***********************************************************************************************************/
+
 #include "Board.h"
 
 int main() {
