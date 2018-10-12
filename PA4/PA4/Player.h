@@ -4,29 +4,27 @@
 
 using namespace std;
 
+/*
 struct coordinates
 {
 	int x, y;
 };
+*/
 
 class Player
 {
 public:
+	Player(int newID, int newX, int newY); //instantiate new player
 	//map<int, coordinates> player;
-	
-	//takes the parameter ID, and x and y coordinates to initialize a player
-	void implement_player(map<int, coordinates> player); //possible function
 
+	//setters/getters for coordinates
+	void setCoordinates(vector<int, int>);
+	vector<int, int> getCoordinates();
 
-
-	/*
-	Approach:
-	- initiate player
-	- use vector to store the x and y coordinates
-	*/
-
+	void setID(int);
+	int getID();
 
 private:
-
-
+	vector<int, int> coordinates; //contains x, y coordinates
+	int ID;
 };
