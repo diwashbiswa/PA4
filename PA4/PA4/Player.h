@@ -25,6 +25,6 @@ public:
 	int getID();
 
 private:
-	vector<int, int> coordinates; //contains x, y coordinates
+	vector<int> coordinates; //contains x, y coordinates
 	int ID;
 };

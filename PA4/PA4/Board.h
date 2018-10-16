@@ -5,7 +5,7 @@ class Board
 public:
 
 	//constructor
-	Board(int size);
+	Board(int newM);
 
 	//adds a new player to the board
 	bool Insert(int ID, int x, int y);
@@ -41,10 +41,18 @@ public:
 	//prints the player by ID from least to greatest
 	void PrintByID(int playerID, int x_coord, int y_coord);
 */
+	int getM();
+
+	int getN();
+	void setN(int newN);
+
+	
 
 private:
 	map<int, Player> player;  //int stores playerID, Player is a player class-- constructor
-	map<vector<int, int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
+	map<vector<int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
 
+	int m;
+	int n;
 	//map<string, int> postion; //we can perhaps use convert x,y coordinates to string("2, 3"), since map only allows key and value
 };
