@@ -28,7 +28,7 @@ int Player::getID()
 	return this->ID;
 }
 
-vector<int, int> Player::getCoordinates()
+vector<int> Player::getCoordinates()
 {
 	return this->coordinates;
 }

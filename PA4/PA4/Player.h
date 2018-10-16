@@ -19,7 +19,7 @@ public:
 
 	//setters/getters for coordinates
 	void setCoordinates(vector<int, int>);
-	vector<int, int> getCoordinates();
+	vector<int> getCoordinates();
 
 	void setID(int);
 	int getID();

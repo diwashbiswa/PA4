@@ -1,9 +1,10 @@
 #include "Board.h"
 
 //constructor
-Board::Board(int m) //m = size as specified in the instruction
+Board::Board(int newM)
 {
-
+	this->n = 0;
+	this->m = newM;
 }
 
 /*
@@ -25,6 +26,7 @@ bool Board::Insert(int ID, int x, int y)
 		if (Board::PositionOccupied(x, y) == true)
 		{
 			this->player.insert(pair<int, Player>(ID, Player(ID, x, y)));
+			n += 1;
 			return true;
 		}
 	}
@@ -127,5 +129,19 @@ display unoccupied positions.
 void Board::PrintByID()
 {
 
+}
+
+int Board::getM()
+{
+	return this->m;
+}
+
+int Board::getN()
+{
+	return this->n;
+}
+void Board::setN(int newN)
+{
+	this->n = newN;
 }
 
