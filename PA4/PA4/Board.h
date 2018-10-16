@@ -52,8 +52,10 @@ public:
 	
 
 private:
-	map<int, Player> player;  //int stores playerID, Player is a player class-- constructor
-	map<vector<int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
+	//map<int, Player> player;  //int stores playerID, Player is a player class-- constructor
+	//map<vector<int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
+
+	map<int, vector<int>> map_board;
 
 	int m;
 	int n;

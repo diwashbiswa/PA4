@@ -21,27 +21,37 @@ bool Board::Insert(int ID, int x, int y)
 	//player.insert(id, Player(id, x, y)); //general format for inserting
 
 	//conditions
+	if (n == m)
+	{
+		cout << "The map board is full!" << endl;
+	}
+
 	if (Board::Search(ID) == true)
 	{
 		if (Board::PositionOccupied(x, y) == true)
 		{
-			this->player.insert(pair<int, Player>(ID, Player(ID, x, y)));
+			this->map_board.insert(pair<int, vector<int>>(ID,Board::makeVector(x, y)));
 			n += 1;
 			return true;
 		}
+		else
+		{
+			cout << "Failed to insert" << endl;
+			return false;
+		}
+
 	}
 	else
 	{
 		cout << "Failed to insert" << endl;
 		return false;
 	}
-
 }
 
 //searches and returns boolean depending on if the player with this ID already exist on the board or not
 bool Board::Search(int ID)
 {
-	if (this->player.find(ID) == this->player.end()) {
+	if (this->map_board.find(ID) == this->map_board.end()) {
 		//not found - doesn't exist on the map
 		return true;
 	}
@@ -56,16 +66,17 @@ bool Board::Search(int ID)
 //returns boolean value depending on if the desired insertion position is occupied or not
 bool Board::PositionOccupied(int x, int y)
 {
-	if (this->position.find(Board::makeVector(x, y)) == this->position.end()) {
-		//not found - doesn't exist on the map
-		return true;
-	}
-	else //exist on the map
+	map <int, vector<int>>::iterator it;
+
+	for (it = map_board.begin(); it != map_board.end(); it++)
 	{
-		cout << "Desired insertion position is occupied!" << endl;
-		return false; 
+		if (it->second == Board::makeVector(x, y)) //coordinates are occupied
+		{
+			cout << "Desired insertion position is occupied!" << endl;
+			return false;
+		}
 	}
-	
+	return true;
 }
 
 vector<int> Board::makeVector(int x, int y)
@@ -83,12 +94,13 @@ Removes a player from a board. Takes player ID to be removed as a parameter. Ret
 removal and false otherwise (i.e., player not found). The value of N should also be updated. Note that upon
 successful removal, the corresponding cell on the board should be availabe for newer insertion.
 */
-bool Board::Remove(int ID) //NEED TO UPDATE N
+bool Board::Remove(int ID)
 {
 	if (Board::Search(ID) == false) //player exist on the board
 	{
-		this->player.erase(ID);
+		this->map_board.erase(ID);
 		cout << "Successful removal of player " << ID << endl;
+		this->n -= 1;
 		return true;
 	}
 	else
@@ -116,11 +128,84 @@ the player, and move the player from its current position, say (x1, y1) to a new
 */
 void Board::MoveTo(int ID, int x2, int y2)
 {
-	if (Board::Find(ID) == true)
-	{
+	map <int, vector<int>>::iterator it;
+	vector <int> coordinates;
+	int x1, y1, ID2, newID;
 
+	//gets the original position/value of the key-ID
+	for (it = map_board.begin(); it != map_board.end(); it++)
+	{
+		if (it->first == ID)
+		{
+			coordinates = it->second;
+			x1 = coordinates.at(0); //saves variable locally
+			y1 = coordinates.at(1);
+			break;
+		}
+	}	
+	
+	//duplicates ID
+	ID2 = ID;
+
+
+
+	//Check
+	if ((x2 < this->m) && (y2 < this->m)) //checks to see if x2 and y2 is within the bounds
+	{
+		if ((x1 == x2 || y1 == y2)) //checks up/down and left/right
+		{
+			//Removes original player
+			Remove(ID);
+
+			if (Board::Find(ID) == true) //If the new desired position contains element, remove it, then insert the ID into that position
+			{
+				//gets the original key/ID
+				for (it = map_board.begin(); it != map_board.end(); it++)
+				{
+					if (it->second == makeVector(x2, y2))
+					{
+						newID = it->first;
+						Remove(newID); //removes the player from the new desired position
+					}
+				}
+			}
+			Insert(ID2, x2, x1); //inserts player into that position
+			cout << "Move successful" << endl;
+		}
+		else
+		{
+			cout << "New desired position is not in the same row or column! Failed to move!" << endl;
+		}
+		/*
+		if ((y2 - y1) == (x2 - x1)) //checks diagonal
+		{
+			//Removes original player
+			Remove(ID);
+
+			if (Board::Find(ID) == true)
+			{
+				for (it = map_board.begin(); it != map_board.end(); it++)
+				{
+					if (it->second == makeVector(x2, y2))
+					{
+						newID = it->first;
+						Remove(newID); //removes the player from the new desired position
+					}
+				}
+			}
+			Insert(ID2, x2, y2); //inserts player into that position//same as moving them
+			cout << "Move successful" << endl;
+
+		}
+		
+		else
+		{
+			cout << "New desired position is not in diagonal position! Failed to move!" << endl;
+		}
+		*/
 	}
 }
+
 
 /*
 Prints all the player IDs along with their (x, y) positions, in the increasing order of their IDs. Shouldn't 
@@ -128,9 +213,16 @@ display unoccupied positions.
 */
 void Board::PrintByID()
 {
+	pair<int, vector<int>> highest = *map_board.rbegin();
+	map <int, vector<int>>::iterator it = map_board.begin();
 
+	do {
+		cout << "ID: " << it->first << "; Position" << "(" << it->second.at(0) << "," << it->second.at(1) << ")" << endl;
+	} while (map_board.value_comp()(*it++, highest));
+	
 }
 
+//setters/getters
 int Board::getM()
 {
 	return this->m;
