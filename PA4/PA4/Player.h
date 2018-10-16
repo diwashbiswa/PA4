@@ -18,7 +18,7 @@ public:
 	//map<int, coordinates> player;
 
 	//setters/getters for coordinates
-	void setCoordinates(vector<int, int>);
+	void setCoordinates(vector<int>);
 	vector<int> getCoordinates();
 
 	void setID(int);

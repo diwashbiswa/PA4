@@ -13,7 +13,7 @@ Player::Player(int newID, int newX, int newY)
 }
 
 //not sure if I need setters/getters but since I made the vector coordinates & ID private, I thought we might need it
-void Player::setCoordinates(vector<int, int> coord)
+void Player::setCoordinates(vector<int> coord)
 {
 	coordinates = coord;
 }
