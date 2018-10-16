@@ -5,7 +5,7 @@ class Board
 public:
 
 	//constructor
-	Board(int size);
+	Board(int m);
 
 	//adds a new player to the board
 	bool Insert(int ID, int x, int y);
@@ -15,6 +15,9 @@ public:
 
 	//returns boolean value depending on if the desired insertion position is occupied or not
 	bool PositionOccupied(int x, int y);
+
+	//inserts x and y into a vector
+	vector<int> makeVector(int x, int y);
 
 	//removes a player from the board
 	bool Remove(int ID);
@@ -44,7 +47,7 @@ public:
 
 private:
 	map<int, Player> player;  //int stores playerID, Player is a player class-- constructor
-	map<vector<int, int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
+	map<vector<int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
 
 	//map<string, int> postion; //we can perhaps use convert x,y coordinates to string("2, 3"), since map only allows key and value
 };

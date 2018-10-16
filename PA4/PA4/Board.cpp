@@ -1,7 +1,7 @@
 #include "Board.h"
 
 //constructor
-Board::Board(int size)
+Board::Board(int m) //m = size as specified in the instruction
 {
 
 }
@@ -19,7 +19,7 @@ bool Board::Insert(int ID, int x, int y)
 {
 	//player.insert(id, Player(id, x, y)); //general format for inserting
 
-	//conditions 1 and 2 //still need condition 3 //NEED TO UPDATE N upon successful insertion -> might need separate functions to update N
+	//conditions
 	if (Board::Search(ID) == true)
 	{
 		if (Board::PositionOccupied(x, y) == true)
@@ -54,7 +54,7 @@ bool Board::Search(int ID)
 //returns boolean value depending on if the desired insertion position is occupied or not
 bool Board::PositionOccupied(int x, int y)
 {
-	if (this->position.find(<x, y>) == this->position.end()) { //.find() functions finds the key, not value
+	if (this->position.find(Board::makeVector(x, y)) == this->position.end()) {
 		//not found - doesn't exist on the map
 		return true;
 	}
@@ -64,6 +64,16 @@ bool Board::PositionOccupied(int x, int y)
 		return false; 
 	}
 	
+}
+
+vector<int> Board::makeVector(int x, int y)
+{
+	vector<int> coordinates;
+
+	coordinates.push_back(x);
+	coordinates.push_back(y);
+
+	return coordinates;
 }
 
 /*
@@ -104,7 +114,10 @@ the player, and move the player from its current position, say (x1, y1) to a new
 */
 void Board::MoveTo(int ID, int x2, int y2)
 {
+	if (Board::Find(ID) == true)
+	{
 
+	}
 }
 
 /*
