@@ -4,16 +4,30 @@ class Board
 {
 public:
 
+	//constructor
+	Board(int size);
+
 	//adds a new player to the board
-	void Insert(int ID, int x, int y);
+	bool Insert(int ID, int x, int y);
 	
-		
+	//searches and returns boolean depending on if the player with this ID already exist on the board or not
+	bool Search(int ID);
 
-	
-	
-	
-	// map<int player id, Player(id, x, y)>
+	//returns boolean value depending on if the desired insertion position is occupied or not
+	bool PositionOccupied(int x, int y);
 
+	//removes a player from the board
+	bool Remove(int ID);
+
+	//finds if player exist on the board or not
+	bool Find(int ID); //pretty much the same as Search() function
+
+	//moves player from current position to a new position
+	void MoveTo(int ID, int x, int y);
+
+	//prints out all player IDs with their positions
+	void PrintByID();
+	
 /*	//functions with sample parameters
 	void Insert(int playerID, int x_coord, int y_coord);
 		
