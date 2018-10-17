@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <cstdlib> 
 
 class Board 
 {
@@ -52,12 +53,8 @@ public:
 	
 
 private:
-	//map<int, Player> player;  //int stores playerID, Player is a player class-- constructor
-	//map<vector<int>, int> position; //stores the position of each player, vector stores x,y coordinates, int stores ID
-
 	map<int, vector<int>> map_board;
 
 	int m;
 	int n;
-	//map<string, int> postion; //we can perhaps use convert x,y coordinates to string("2, 3"), since map only allows key and value
 };

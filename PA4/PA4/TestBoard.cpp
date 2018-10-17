@@ -10,11 +10,7 @@ Comments:
 
 int main() {
 
-	// This code is not a complete test code (won't even compile) and it may be syntactically inconsistent with your class definitions. 
-	// So modify before use as appropriate. But the idea of testing should be clear. You are free to shuffle around the order of operations in order to devise more test cases of your own.
-
-
-	Board B(10);	// specifies that the game board size is 1000000 x 1000000 
+	Board B(1000000);	// specifies that the game board size is 1000000 x 1000000 
 
 						// the following is a sequence of calls to Board class methods assuming
 						// 	the input example (m=10,n=8) given in the programming assignment.
@@ -41,9 +37,6 @@ int main() {
 	cout << "Insert 10" << endl;
 	B.Insert(10, 9, 8);	// should fail because 9,8 is occupied already
 	
-	cout << "Move 0" << endl;
-	B.MoveTo(6, 9, 3); //move w/o problem
-
 	cout << endl << "Move 1" << endl;
 	B.MoveTo(4, 9, 3);	//assumed syntax: MoveTo(ID,x,y) // removes 7 in the process
 	B.PrintByID();

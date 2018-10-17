@@ -147,8 +147,6 @@ void Board::MoveTo(int ID, int x2, int y2)
 	//duplicates ID
 	ID2 = ID;
 
-
-
 	//Check
 	if ((x2 < this->m) && (y2 < this->m)) //checks to see if x2 and y2 is within the bounds
 	{
@@ -157,8 +155,6 @@ void Board::MoveTo(int ID, int x2, int y2)
 			//Removes original player
 			Remove(ID);
 
-			if (Board::Find(ID) == true) //If the new desired position contains element, remove it, then insert the ID into that position
-			{
 				//gets the original key/ID
 				for (it = map_board.begin(); it != map_board.end(); it++)
 				{
@@ -166,43 +162,33 @@ void Board::MoveTo(int ID, int x2, int y2)
 					{
 						newID = it->first;
 						Remove(newID); //removes the player from the new desired position
+						break;
 					}
 				}
-			}
-			Insert(ID2, x2, x1); //inserts player into that position
+			Insert(ID2, x2, y2); //inserts player into that position
 			cout << "Move successful" << endl;
-		}
-		else
-		{
-			cout << "New desired position is not in the same row or column! Failed to move!" << endl;
-		}
-		/*
-		if ((y2 - y1) == (x2 - x1)) //checks diagonal
+		}		
+		else if (abs((y2 - y1)) == abs((x2 - x1))) //checks diagonal
 		{
 			//Removes original player
 			Remove(ID);
 
-			if (Board::Find(ID) == true)
-			{
 				for (it = map_board.begin(); it != map_board.end(); it++)
 				{
 					if (it->second == makeVector(x2, y2))
 					{
 						newID = it->first;
 						Remove(newID); //removes the player from the new desired position
+						break;
 					}
 				}
-			}
 			Insert(ID2, x2, y2); //inserts player into that position//same as moving them
 			cout << "Move successful" << endl;
-
-		}
-		
+		}		
 		else
 		{
-			cout << "New desired position is not in diagonal position! Failed to move!" << endl;
+			cout << "New desired position is not in the same row or column or in diagonal position! Failed to move!" << endl;
 		}
-		*/
 	}
 }
 
