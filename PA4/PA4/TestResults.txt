@@ -1,0 +1,109 @@
+Insert 1
+Insert 2
+Insert 3
+Insert 4
+Insert 5
+Insert 6
+Insert 7
+Insert 8
+Insert 9
+ID exist on the map!
+Failed to insert
+Insert 10
+Desired insertion position is occupied!
+Failed to insert
+
+Move 1
+ID exist on the map!
+Successful removal of player 4
+ID exist on the map!
+Successful removal of player 7
+Move successful
+ID: 1; Position(3,2)
+ID: 2; Position(4,3)
+ID: 3; Position(4,6)
+ID: 4; Position(9,3)
+ID: 5; Position(6,3)
+ID: 6; Position(8,2)
+ID: 8; Position(9,8)
+Move 2. Removes 8
+ID exist on the map!
+Successful removal of player 4
+ID exist on the map!
+Successful removal of player 8
+Move successful
+ID: 1; Position(3,2)
+ID: 2; Position(4,3)
+ID: 3; Position(4,6)
+ID: 4; Position(9,8)
+ID: 5; Position(6,3)
+ID: 6; Position(8,2)
+Move 3. Should fail!
+New desired position is not in the same row or column or in diagonal position! Failed to move!
+ID: 1; Position(3,2)
+ID: 2; Position(4,3)
+ID: 3; Position(4,6)
+ID: 4; Position(9,8)
+ID: 5; Position(6,3)
+ID: 6; Position(8,2)
+Move 4
+ID exist on the map!
+Successful removal of player 2
+Move successful
+ID: 1; Position(3,2)
+ID: 2; Position(3,3)
+ID: 3; Position(4,6)
+ID: 4; Position(9,8)
+ID: 5; Position(6,3)
+ID: 6; Position(8,2)
+Move 5
+ID exist on the map!
+Successful removal of player 4
+ID exist on the map!
+Successful removal of player 1
+Move successful
+ID: 2; Position(3,3)
+ID: 3; Position(4,6)
+ID: 4; Position(3,2)
+ID: 5; Position(6,3)
+ID: 6; Position(8,2)
+Move 6
+ID exist on the map!
+Successful removal of player 4
+ID exist on the map!
+Successful removal of player 6
+Move successful
+ID: 2; Position(3,3)
+ID: 3; Position(4,6)
+ID: 4; Position(8,2)
+ID: 5; Position(6,3)
+Move 7
+ID exist on the map!
+Successful removal of player 5
+ID exist on the map!
+Successful removal of player 2
+Move successful
+ID: 3; Position(4,6)
+ID: 4; Position(8,2)
+ID: 5; Position(3,3)
+Move 8
+ID exist on the map!
+Successful removal of player 4
+ID exist on the map!
+Successful removal of player 3
+Move successful
+ID: 4; Position(4,6)
+ID: 5; Position(3,3)
+Move 9
+ID exist on the map!
+Successful removal of player 5
+Move successful
+ID: 4; Position(4,6)
+ID: 5; Position(4,3)
+Move 10
+ID exist on the map!
+Successful removal of player 4
+ID exist on the map!
+Successful removal of player 5
+Move successful
+ID: 4; Position(4,3)
